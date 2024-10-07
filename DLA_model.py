@@ -15,7 +15,8 @@ grid[start_point] = True  # La graine initiale est au sommet de la grille
 
 # Fonction pour générer une nouvelle particule à un endroit aléatoire sur le bord supérieur
 def generate_new_particle(grid_size):
-    return (random.randint(0, grid_size-1), grid_size-1)  # Nouvelle particule sur le bord supérieur
+    return (grid_size//2, grid_size-1)  # Nouvelle particule sur le bord supérieur (ne pas le faire en random donne un truc pas ouf)
+
 
 # Fonction pour vérifier si une particule touche la structure existante
 def is_touching_structure(x, y, grid):
