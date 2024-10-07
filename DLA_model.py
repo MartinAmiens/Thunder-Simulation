@@ -40,9 +40,11 @@ def random_walk(x, y, grid_size):
     return x_new, y_new
 
 # Simulation de DLA (Diffusion-Limited Aggregation)
+trajectories = []
 for i in range(num_particles):
     # Générer une nouvelle particule
     x, y = generate_new_particle(grid_size)
+    trajectory = [(x, y)]
     
     # Réinitialiser le nombre de pas pour chaque particule
     step = 0
@@ -50,7 +52,7 @@ for i in range(num_particles):
     # Faire marcher la particule jusqu'à ce qu'elle touche la structure ou atteigne le nombre maximal de pas
     while step < max_steps:
         x, y = random_walk(x, y, grid_size)
-        
+        trajectory.append((x, y))
         # Si la particule touche la structure, elle s'attache
         if is_touching_structure(x, y, grid):
             grid[x, y] = True
@@ -58,15 +60,14 @@ for i in range(num_particles):
             break  # Sortir de la boucle dès que la particule s'attache
         
         step += 1
+    trajectories.append(trajectory)
     
 
 # Visualisation de la trajectoire de la foudre
 # Code existant
+for trajectory in trajectories:
+   xs, ys = zip(*trajectory)
+   plt.plot(xs, ys, alpha=0.5)
 plt.imshow(grid.T, cmap='binary', origin='lower')
-plt.title("Simulation de la foudre (DLA)")
-
-# Enregistre l'image
-plt.savefig('simulation_foudre.png')
-
-# Affiche l'image
-plt.show()
+plt.title("Simulation de la foudre avec trajectoires")
+plt.savefig('simulation_foudre_DLA_avec_trajectories.png')
