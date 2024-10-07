@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 import random
 
 # Paramètres de simulation
-grid_size = 25
-num_particles = 20
+grid_size = 50
+num_particles = 2000
 stick_radius = 1
 start_point = (grid_size // 2, grid_size-1)
 max_steps = 600000
