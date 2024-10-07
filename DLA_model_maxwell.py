@@ -7,7 +7,7 @@ grid_size = 25
 num_particles = 20
 stick_radius = 1
 start_point = (grid_size // 2, 0)
-max_steps = 100000
+max_steps = 300000
 E_field = np.random.uniform(low=0, high=2e6, size=(grid_size, grid_size, 2))
 charge_part = 1
 ionization_threshold = 1e6
