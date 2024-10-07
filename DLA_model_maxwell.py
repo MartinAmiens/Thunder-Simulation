@@ -46,23 +46,23 @@ def ionization_movement(x, y, grid_size, E_field, charge, ionization_threshold, 
 trajectories = []
 for i in range(num_particles):
     x, y = generate_new_particle(grid_size)
-    trajectory = [(x, y)]
+    #trajectory = [(x, y)]
     step = 0
     while step < max_steps:
         x, y = ionization_movement(x, y, grid_size, E_field, charge_part, ionization_threshold, ionization_probability)
-        trajectory.append((x, y))
+        #trajectory.append((x, y))
         if is_touching_structure(x, y, grid, stick_radius):
             grid[x, y] = True
             print(f"Particule {i+1} attachée après {step} pas")
             break
         step += 1
-    trajectories.append(trajectory)
+    #trajectories.append(trajectory)
 
 # Visualisation
-for trajectory in trajectories:
+"""for trajectory in trajectories:
    xs, ys = zip(*trajectory)
-   plt.plot(xs, ys, alpha=0.5)
+   plt.plot(xs, ys, alpha=0.5)"""
 plt.imshow(grid.T, cmap='binary', origin='lower')
-plt.title("Simulation de la foudre (DLA) avec trajectoires")
-plt.savefig('simulation_foudre_plus_trajectories.png')
+plt.title("Simulation de la foudre (DLA) sans trajectoires")
+plt.savefig('simulation_foudre_sans_trajectories.png')
 plt.show()
