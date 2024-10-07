@@ -3,11 +3,11 @@ import matplotlib.pyplot as plt
 import random
 
 # Paramètres de simulation
-grid_size = 600  # Taille de la grille
-num_particles = 5000  # Nombre total de particules à simuler
+grid_size = 100  # Taille de la grille
+num_particles = 1000  # Nombre total de particules à simuler
 stick_radius = 1  # Distance à laquelle une particule peut "coller" à la structure
 start_point = (grid_size // 2, 0)  # Point de départ de la graine (le nuage)
-max_steps = 3000  # Nombre maximal de pas pour une particule
+max_steps = 1000  # Nombre maximal de pas pour une particule
 
 # Création de la grille avec une graine initiale (la graine de foudre)
 grid = np.zeros((grid_size, grid_size), dtype=bool)
@@ -69,5 +69,5 @@ for i in range(num_particles):
    xs, ys = zip(*trajectory)
    plt.plot(xs, ys, alpha=0.5)"""
 plt.imshow(grid.T, cmap='binary', origin='lower')
-plt.title("Simulation de la foudre sans trajectoires")
-plt.savefig('simulation_foudre_DLA_sans_trajectories.png')
+plt.title("Simulation de la foudre via DLA")
+plt.savefig('simulation_foudre_DLA_pwp.png')
