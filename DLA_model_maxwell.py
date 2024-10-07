@@ -64,4 +64,5 @@ for trajectory in trajectories:
    plt.plot(xs, ys, alpha=0.5)
 plt.imshow(grid.T, cmap='binary', origin='lower')
 plt.title("Simulation de la foudre (DLA) avec trajectoires")
+plt.savefig('simulation_foudre_plus_trajectories.png')
 plt.show()
