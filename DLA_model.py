@@ -60,6 +60,12 @@ for i in range(num_particles):
     
 
 # Visualisation de la trajectoire de la foudre
+# Code existant
 plt.imshow(grid.T, cmap='binary', origin='lower')
 plt.title("Simulation de la foudre (DLA)")
+
+# Enregistre l'image
+plt.savefig('simulation_foudre.png')
+
+# Affiche l'image
 plt.show()
